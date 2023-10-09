@@ -14,7 +14,7 @@ public class Checkout extends SuccessfulLogin {
 
     @Test
     public void checkout() {
-        //The checkout test proceeds only if the login was successful. Otherwise it stops.
+        //The checkout test proceeds only if the login was successful. Otherwise, it stops.
         WebElement backpackAddToCartButton = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         backpackAddToCartButton.click();
 

@@ -12,8 +12,9 @@ public class TestUtil {
     public void setupChromeDriver(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/"); //Gets the URL
+        driver.get("https://www.saucedemo.com/"); //Opens the URL
     }
+
     @AfterMethod
     public void tearDown(){
         driver.quit();
