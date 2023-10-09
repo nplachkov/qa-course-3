@@ -1,5 +1,6 @@
 package SauceDemo;
 
+import base.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,24 +11,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class FailedLogin {
-    public WebDriver driver;
-
-    @BeforeMethod
-    private void setupChromeDriver() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-    @AfterMethod
-    private void tearDown() {
-        driver.quit();
-    }
-
+public class FailedLogin extends TestUtil {
     @Test
     public void failedLogin() {
-        driver.get("https://www.saucedemo.com/");
-
         WebElement usernameInput = driver.findElement(By.id("user-name"));
         usernameInput.click();
         usernameInput.clear();
