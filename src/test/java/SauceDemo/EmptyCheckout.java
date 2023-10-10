@@ -6,21 +6,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Checkout extends SuccessfulLogin {
+public class EmptyCheckout extends SuccessfulLogin{
     @BeforeMethod
     public void successfulLogin() {
         super.successfulLogin();
     }
 
     @Test
-    public void checkout() {
-        //The checkout test proceeds only if the login was successful. Otherwise, it stops.
-        WebElement backpackAddToCartButton = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
-        backpackAddToCartButton.click();
-
-        WebElement bikeLightAddToCartButton = driver.findElement(By.id("add-to-cart-sauce-labs-bike-light"));
-        bikeLightAddToCartButton.click();
-
+    public void emptyCheckout(){
         WebElement shoppingCartButton = driver.findElement(By.className("shopping_cart_link"));
         shoppingCartButton.click();
 
@@ -53,7 +46,7 @@ public class Checkout extends SuccessfulLogin {
         String checkoutResult;
         String resultText = "Checkout test: ";
 
-        if (currentURL.equals(checkoutExpectedURL)) {
+        if (!currentURL.equals(checkoutExpectedURL)) {
             checkoutResult = "PASS";
             System.out.println(resultText + checkoutResult);
         } else {

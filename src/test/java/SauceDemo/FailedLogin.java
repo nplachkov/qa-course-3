@@ -22,14 +22,17 @@ public class FailedLogin extends TestUtil {
         WebElement loginButton = driver.findElement(By.id("login-button"));
         loginButton.click();
 
+        String resultText = "Failed login test: ";
         String failedLoginResult;
+
         WebElement errorMessage = driver.findElement(By.className("error-button"));
         if (errorMessage.isDisplayed()) {
             failedLoginResult = "PASS";
+            System.out.println(resultText + failedLoginResult);
         } else {
             failedLoginResult = "FAIL";
+            System.out.println(resultText + failedLoginResult);
             Assert.fail();
         }
-        System.out.println("Failed login test: " + failedLoginResult);
     }
 }

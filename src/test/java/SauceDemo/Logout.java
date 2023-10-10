@@ -27,14 +27,16 @@ public class Logout extends SuccessfulLogin {
 
         String logoutExpectedURL = "https://www.saucedemo.com/";
         String logoutActualURL = driver.getCurrentUrl();
+        String resultText = "Logout test: ";
         String logoutResult;
 
         if (logoutActualURL.equalsIgnoreCase(logoutExpectedURL)) {
             logoutResult = "PASS";
+            System.out.println(resultText + logoutResult);
         } else {
             logoutResult = "FAIL";
+            System.out.println(resultText + logoutResult);
             Assert.fail();
         }
-        System.out.println("Logout test: " + logoutResult);
     }
 }

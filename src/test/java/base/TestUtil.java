@@ -14,7 +14,6 @@ public class TestUtil {
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/"); //Opens the URL
     }
-
     @AfterMethod
     public void tearDown(){
         driver.quit();

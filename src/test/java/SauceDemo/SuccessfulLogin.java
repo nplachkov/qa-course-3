@@ -27,16 +27,19 @@ public class SuccessfulLogin extends TestUtil {
 
         //Gets the current URL and confirms if the user logged in.
         String loginActualURL = driver.getCurrentUrl();
-        String loginResult;
         String loginExpectedURL = "https://www.saucedemo.com/inventory.html";
+
+        String loginResult;
         String resultText = "Login test: ";
+
         if (loginActualURL.equalsIgnoreCase(loginExpectedURL)){
             loginResult = "PASS";
             System.out.println(resultText + loginResult);
         }
         else {
             loginResult = "FAIL";
-            Assert.fail(resultText + loginResult);
+            System.out.println(resultText + loginResult);
+            Assert.fail();
         }
     }
 }
