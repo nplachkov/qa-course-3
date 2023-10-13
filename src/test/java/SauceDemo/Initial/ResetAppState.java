@@ -1,6 +1,5 @@
-package SauceDemo;
+package SauceDemo.Initial;
 
-import org.bouncycastle.asn1.dvcs.DVCSObjectIdentifiers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

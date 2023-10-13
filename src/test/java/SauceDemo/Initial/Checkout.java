@@ -1,4 +1,4 @@
-package SauceDemo;
+package SauceDemo.Initial;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -50,16 +50,9 @@ public class Checkout extends SuccessfulLogin {
 
         String checkoutExpectedURL = "https://www.saucedemo.com/checkout-complete.html";
         String currentURL = driver.getCurrentUrl();
-        String checkoutResult;
-        String resultText = "Checkout test: ";
 
-        if (currentURL.equals(checkoutExpectedURL)) {
-            checkoutResult = "PASS";
-            System.out.println(resultText + checkoutResult);
-        } else {
-            checkoutResult = "FAIL";
-            System.out.println(resultText + checkoutResult);
-            Assert.fail();
-        }
+        WebElement completeOrder = driver.findElement(By.className("complete-header"));
+
+        Assert.assertTrue(completeOrder.isDisplayed());
     }
 }

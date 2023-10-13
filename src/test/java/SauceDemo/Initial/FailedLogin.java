@@ -1,4 +1,4 @@
-package SauceDemo;
+package SauceDemo.Initial;
 
 import base.TestUtil;
 import org.openqa.selenium.By;

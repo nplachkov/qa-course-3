@@ -1,4 +1,4 @@
-package SauceDemo;
+package SauceDemo.Initial;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
