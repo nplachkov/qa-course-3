@@ -12,20 +12,19 @@ import java.time.Duration;
 
 public class LoginTests extends TestUtil {
 
-    @Test
-    public void successfulLogin(){
+//    Login tests that use the provided username/password combination from the specified CSV file using DataProvider.
+    @Test (dataProvider = "validUsersFromCSV")
+    public void successfulLoginFromCSV(String username, String password){
         LoginPage loginPage = new LoginPage(driver);
-        ProductPage productPage = loginPage.login("standard_user", "secret_sauce");
+        ProductPage productPage = loginPage.login(username, password);
 
         Assert.assertTrue(productPage.isAt());
-
-
     }
 
-    @Test
-    public void unSuccessfulLogin(){
+    @Test (dataProvider = "wrongUsersFromCSV")
+    public void unSuccessfulLoginFromCSV(String username, String password){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("standard_user", "secret_sauceWRONG");
+        loginPage.login(username,password);
 
         Assert.assertTrue(loginPage.isAt());
     }

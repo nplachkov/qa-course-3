@@ -12,17 +12,20 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class TestUtil {
+public class TestUtil extends DataProviders {
     public WebDriver driver;
     private String testURL, browser;
     private int implicitWait;
+
+    //Sets up the driver and opens the Test URL. (The driver is determined by the setupDriver() method below.
     @BeforeMethod
     public void setupDriverAndOpenTestAddress(){
         readConfig("src/test/resources/config.properties");
         setupDriver();
         driver.get(testURL);
-
     }
+
+    //Reads the config.properties file and assigns the properties from it into the Strings below.
     private void readConfig(String fullPathToConfigFile){
         try{
             FileInputStream fileInputStream = new FileInputStream(fullPathToConfigFile);
@@ -37,6 +40,7 @@ public class TestUtil {
         }
     }
 
+    //Assigns the relevant browser based on the browser input from the "config.properties" file.
     private void setupDriver(){
         switch (browser){
             case "chrome":
@@ -53,21 +57,25 @@ public class TestUtil {
         }
     }
 
+    //Chrome driver setup method.
     private WebDriver setupChromeDriver(){
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
 
+    //Firefox driver setup method.
     private WebDriver setupFirefoxDriver(){
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
     }
 
+    //Safari driver setup method.
     private WebDriver setupSafariDriver(){
         WebDriverManager.safaridriver().setup();
         return new SafariDriver();
     }
 
+    //Cleans up after completing the test. (Closes the browser)
     @AfterMethod
     public void tearDown(){
         driver.quit();
