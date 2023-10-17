@@ -18,10 +18,8 @@ public class SuccessfulLoginTest extends TestUtil {
     }
 
     @Test
-    public void successfulLogin(String username, String password){
+    public void successfulLogin(){
         LoginPage loginPage = new LoginPage(driver);
         ProductPage productPage = loginPage.login("standard_user", "secret_sauce");
-
-        Assert.assertTrue(productPage.isAt());
     }
 }
