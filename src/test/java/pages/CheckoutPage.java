@@ -25,18 +25,18 @@ public class CheckoutPage extends BasePage{
         return postCodeInput.isDisplayed();
     }
 
-    public CheckoutPage2 checkoutContinue(){
+    public CheckoutPage2 checkoutContinue(String firstName, String lastName, String postCode){
         firstNameInput.click();
         firstNameInput.clear();
-        firstNameInput.sendKeys("Nikolay");
+        firstNameInput.sendKeys(firstName);
 
         lastNameInput.click();
         lastNameInput.clear();
-        lastNameInput.sendKeys("Test");
+        lastNameInput.sendKeys(lastName);
 
         postCodeInput.click();
         postCodeInput.clear();
-        postCodeInput.sendKeys("4000");
+        postCodeInput.sendKeys(postCode);
 
         continueButton.click();
 

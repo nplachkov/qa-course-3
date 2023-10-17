@@ -54,4 +54,25 @@ public class DataProviders {
             return null;
         }
     }
+    @DataProvider(name = "checkoutDetailsFromCSV")
+    public Object[][] readCheckoutDetailsFromCSV(){
+        try {
+            CSVReader csvReader = new CSVReader(new FileReader("src/test/resources/checkoutDetails.csv"));
+            List<String[]> csvData = csvReader.readAll();
+            Object[] [] csvDataObject = new Object[csvData.size()][3];
+
+            for (int i = 0; i < csvData.size(); i++) {
+                csvDataObject[i] = csvData.get(i);
+            }
+            return csvDataObject;
+        }
+        catch (IOException e){
+            System.out.println("CSV file not found.");
+            return null;
+        }
+        catch (CsvException e){
+            System.out.println("File not readable.");
+            return null;
+        }
+    }
 }

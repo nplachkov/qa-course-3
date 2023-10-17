@@ -15,7 +15,8 @@ public class ProductPage extends BasePage{
     WebElement addToCartLightButton;
     @FindBy(className = "shopping_cart_link")
     WebElement cartButton;
-
+    @FindBy(className = "shopping_cart_badge")
+    WebElement cartBadge;
 
     public ProductPage(WebDriver driver) {
         super(driver);
@@ -31,7 +32,13 @@ public class ProductPage extends BasePage{
         addToCartBackpackButton.click();
         addToCartLightButton.click();
 
-        cartButton.click();
+        if (cartBadge.isDisplayed()){
+            cartButton.click();
+        }
+        else {
+            System.out.println("Cart item badge not displayed.");
+            cartButton.click();
+        }
 
         return new CartPage(driver);
     }

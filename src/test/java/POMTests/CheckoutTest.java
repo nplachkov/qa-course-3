@@ -11,12 +11,12 @@ public class CheckoutTest extends AddToCartTest{
         super.addToCart();
     }
 
-    @Test
-    public void checkout(){
+    @Test (dataProvider = "checkoutDetailsFromCSV")
+    public void checkout(String firstName, String lastName, String postCode){
         CartPage cartPage = new CartPage(driver);
         CheckoutPage checkoutPage = cartPage.cartContinue();
 
-        CheckoutPage2 checkoutPage2 = checkoutPage.checkoutContinue();
+        CheckoutPage2 checkoutPage2 = checkoutPage.checkoutContinue(firstName, lastName, postCode);
         CheckoutFinalPage checkoutFinalPage = checkoutPage2.finish();
 
         Assert.assertTrue(checkoutFinalPage.isAt());
