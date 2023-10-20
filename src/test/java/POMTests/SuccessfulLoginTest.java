@@ -16,10 +16,4 @@ public class SuccessfulLoginTest extends TestUtil {
 
         Assert.assertTrue(productPage.isAt());
     }
-
-    @Test
-    public void successfulLogin(){
-        LoginPage loginPage = new LoginPage(driver);
-        ProductPage productPage = loginPage.login("standard_user", "secret_sauce");
-    }
 }

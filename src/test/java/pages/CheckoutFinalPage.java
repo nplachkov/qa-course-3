@@ -19,7 +19,4 @@ public class CheckoutFinalPage extends BasePage{
     public boolean isAt() {
         return completeHeader.isDisplayed();
     }
-
-
-
 }

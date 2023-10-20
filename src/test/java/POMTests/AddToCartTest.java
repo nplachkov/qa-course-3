@@ -10,12 +10,14 @@ import pages.CheckoutPage;
 import pages.LoginPage;
 import pages.ProductPage;
 
-public class AddToCartTest extends SuccessfulLoginTest {
+public class AddToCartTest extends TestUtil {
 
     @BeforeMethod
-    public void login(){
-        super.successfulLogin();
+    public void login() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user", "secret_sauce");
     }
+
     @Test
     public void addToCart(){
         ProductPage productPage = new ProductPage(driver);
