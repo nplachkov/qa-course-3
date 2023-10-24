@@ -13,11 +13,15 @@ public class CheckoutTest extends TestUtil {
         ProductPage productPage = new ProductPage(driver);
 
         loginPage.login("standard_user","secret_sauce");
-        productPage.addToCart();
+        productPage.addItemToCart("backpack");
+        productPage.addItemToCart("bike-light");
+        productPage.productPageContinue();
+//        productPage.addToCart();
     }
     @Test (dataProvider = "checkoutDetailsFromCSV")
     public void checkout(String firstName, String lastName, String postCode){
         CartPage cartPage = new CartPage(driver);
+        ProductPage productPage = new ProductPage(driver);
         CheckoutPage checkoutPage = cartPage.cartContinue();
 
         CheckoutPage2 checkoutPage2 = checkoutPage.checkoutContinue(firstName, lastName, postCode);

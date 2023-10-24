@@ -21,8 +21,10 @@ public class AddToCartTest extends TestUtil {
     @Test
     public void addToCart(){
         ProductPage productPage = new ProductPage(driver);
-        CartPage cartPage = productPage.addToCart();
 
-        Assert.assertTrue(cartPage.isAt());
+        productPage.addItemToCart("backpack");
+        productPage.addItemToCart("bike-light");
+
+        Assert.assertEquals(productPage.getItemsInCart(),2,"Items added to cart.");
     }
 }
