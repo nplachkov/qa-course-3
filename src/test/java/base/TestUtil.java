@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class TestUtil extends DataProviders {
@@ -22,6 +23,7 @@ public class TestUtil extends DataProviders {
     public void setupDriverAndOpenTestAddress(){
         readConfig("src/test/resources/config.properties");
         setupDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
         driver.get(testURL);
     }
 

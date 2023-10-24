@@ -17,15 +17,10 @@ public class ProductPage extends BasePage{
     private final static String REMOVE_PRODUCT_BASE_ID = "remove-sauce-labs-";
     @FindBy (className ="title")
     WebElement pageTitle;
-    @FindBy(id = "add-to-cart-sauce-labs-backpack")
-    WebElement addToCartBackpackButton;
-    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
-    WebElement addToCartLightButton;
     @FindBy(className = "shopping_cart_link")
     WebElement cartButton;
     @FindBy(className = "shopping_cart_badge")
     WebElement cartBadge;
-
 
     public ProductPage(WebDriver driver) {
         super(driver);
@@ -41,11 +36,13 @@ public class ProductPage extends BasePage{
         WebElement itemTobeAdded = driver.findElement(By.id(PRODUCT_BASE_ID + itemName));
         itemTobeAdded.click();
     }
+
     public void removeItemFromCart(String itemName){
         //dynamically build the element locator:
         WebElement itemTobeRemoved = driver.findElement(By.id(REMOVE_PRODUCT_BASE_ID + itemName));
         itemTobeRemoved.click();
     }
+
     @Override
     public boolean isAt() {
         return pageTitle.isDisplayed();
