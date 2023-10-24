@@ -19,7 +19,7 @@ public class CheckoutPage2 extends BasePage {
         return finishButton.isDisplayed();
     }
 
-    public CheckoutFinalPage finish(){
+    public CheckoutFinalPage checkoutFinish(){
         finishButton.click();
 
         return new CheckoutFinalPage(driver);
