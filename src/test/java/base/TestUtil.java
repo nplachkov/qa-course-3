@@ -7,7 +7,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -17,13 +16,16 @@ public class TestUtil extends DataProviders {
     public WebDriver driver;
     private String testURL, browser;
     private int implicitWait;
+    public String correctUsername;
+    public String correctPassword;
+    public String problemUsername;
 
     //Sets up the driver and opens the Test URL. (The driver is determined by the setupDriver() method below.
     @BeforeMethod
     public void setupDriverAndOpenTestAddress(){
         readConfig("src/test/resources/config.properties");
         setupDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait)); //Sets Implicit wait for the whole project here
         driver.get(testURL);
     }
 
@@ -36,6 +38,10 @@ public class TestUtil extends DataProviders {
             testURL = properties.getProperty("URL");
             browser = properties.getProperty("browser");
             implicitWait = Integer.parseInt(properties.getProperty("implicitWait"));
+            correctUsername = properties.getProperty("correctUsername");
+            correctPassword = properties.getProperty("correctPassword");
+            problemUsername = properties.getProperty("problemUsername");
+
         }
         catch (IOException e){
             System.out.println(e);

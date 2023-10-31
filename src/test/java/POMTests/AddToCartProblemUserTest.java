@@ -11,8 +11,9 @@ public class AddToCartProblemUserTest extends TestUtil {
     @BeforeMethod
     public void login() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("problem_user", "secret_sauce");
+        loginPage.login(problemUsername,correctPassword);
     }
+
     @Test
     public void addToCartProblemUser(){
         ProductPage productPage = new ProductPage(driver);

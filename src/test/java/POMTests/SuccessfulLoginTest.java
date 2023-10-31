@@ -7,7 +7,6 @@ import pages.LoginPage;
 import pages.ProductPage;
 
 public class SuccessfulLoginTest extends TestUtil {
-
 //    Login tests that use the provided username/password combination from the specified CSV file using DataProvider.
     @Test (dataProvider = "validUsersFromCSV")
     public void successfulLoginFromCSV(String username, String password){

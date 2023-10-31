@@ -3,14 +3,13 @@ package base;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.testng.annotations.DataProvider;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
 public class DataProviders {
 
-    //Method to read the valid users from CSV file.
+    //Method to read the valid users from a CSV file.
     @DataProvider(name = "validUsersFromCSV")
     public Object[][] readValidUsersFromCSV(){
         try {
@@ -32,7 +31,7 @@ public class DataProviders {
         }
     }
 
-    //Method to read wrong users from CSV file.
+    //Method to read wrong users from a CSV file.
     @DataProvider(name = "wrongUsersFromCSV")
     public Object[][] readWrongUsersFromCSV(){
         try {
@@ -54,6 +53,7 @@ public class DataProviders {
             return null;
         }
     }
+    //Method to read the checkout details from a CSV file.
     @DataProvider(name = "checkoutDetailsFromCSV")
     public Object[][] readCheckoutDetailsFromCSV(){
         try {

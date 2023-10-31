@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
-
     //Finds all the required Web Elements at the Login Page, so we can just use them later on.
     @FindBy(id = "user-name")
     WebElement userNameInput;
@@ -24,7 +23,6 @@ public class LoginPage extends BasePage {
     public boolean isAt() {
         return loginButton.isDisplayed();
     }
-
     public ProductPage login(String username, String password) {
         userNameInput.click();
         userNameInput.clear();
