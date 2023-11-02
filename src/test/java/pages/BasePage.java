@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage extends TestUtil {
     //The Base Page extends the TestUtil, hence it sets the relevant WebDriver from the method in TestUtil.
-    protected WebDriver driver;
-
     public BasePage(WebDriver driver){
         this.driver = driver;
     }
