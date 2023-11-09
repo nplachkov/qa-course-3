@@ -1,4 +1,4 @@
-package POMTests;
+package tests;
 
 import base.TestUtil;
 import org.testng.Assert;

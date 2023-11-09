@@ -1,27 +1,27 @@
-package POMTests;
+package tests;
 
 import base.TestUtil;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProductPage;
 
-public class AddToCartTest extends TestUtil {
+public class AddToCartProblemUserTest extends TestUtil {
     @BeforeMethod
     public void login() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(correctUsername,correctPassword);
+        loginPage.login(problemUsername,correctPassword);
     }
 
     @Test
-    public void addToCart(){
+    public void addToCartProblemUser(){
         ProductPage productPage = new ProductPage(driver);
 
         productPage.addItemToCart("backpack");
         productPage.addItemToCart("bike-light");
+        productPage.addItemToCart("bolt-t-shirt");
 
-        Assert.assertEquals(productPage.getItemsInCart(),2,"Items added to cart.");
+        Assert.assertEquals(productPage.getItemsInCart(),3,"Amount of items added to cart.");
     }
 }

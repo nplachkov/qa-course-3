@@ -1,4 +1,4 @@
-package POMTests;
+package tests;
 
 import base.TestUtil;
 import org.testng.Assert;
@@ -7,21 +7,20 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProductPage;
 
-public class AddToCartProblemUserTest extends TestUtil {
+public class AddToCartTest extends TestUtil {
     @BeforeMethod
     public void login() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(problemUsername,correctPassword);
+        loginPage.login(correctUsername,correctPassword);
     }
 
     @Test
-    public void addToCartProblemUser(){
+    public void addToCart(){
         ProductPage productPage = new ProductPage(driver);
 
         productPage.addItemToCart("backpack");
         productPage.addItemToCart("bike-light");
-        productPage.addItemToCart("bolt-t-shirt");
 
-        Assert.assertEquals(productPage.getItemsInCart(),3,"Amount of items added to cart.");
+        Assert.assertEquals(productPage.getItemsInCart(),2,"Items added to cart.");
     }
 }
